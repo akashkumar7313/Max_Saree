@@ -2,16 +2,18 @@ import React from "react";
 import Slider from "react-slick";
 import Heading from "../Products/Heading";
 import Product from "../Products/Product";
-import image1 from  "../../../assets/images/products/newArrival/Velvet-Saree-For-Farewell-Party-Latest-Design-2.webp"
+import image1 from "../../../assets/images/products/newArrival/Velvet-Saree-For-Farewell-Party-Latest-Design-2.webp"
 import SampleNextArrow from "./SampleNextArrow";
 import SamplePrevArrow from "./SamplePrevArrow";
 
 const NewArrivals = () => {
   const settings = {
-    infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 3000, 
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [

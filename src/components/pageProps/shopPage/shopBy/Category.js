@@ -33,17 +33,17 @@ const Category = () => {
     <div className="w-full">
       <NavTitle title="Shop by Category" icons={false} />
       <div>
-        <ul className="flex flex-col gap-4 text-sm lg:text-base text-[#767676]">
+        <ul className="flex flex-col gap-4 text-sm lg:text-base font-semibold">
           {items.map(({ _id, title, icons }) => (
             <li
               key={_id}
-              className="border-b-[1px] border-b-[#F0F0F0] pb-2 flex items-center justify-between"
+              className="border-b-[1px] border-b-[#F0F0F0] pb-2 flex  text-white hover:text-black items-center justify-between"
             >
               {title}
               {icons && (
                 <span
                   onClick={() => setShowSubCatOne(!showSubCatOne)}
-                  className="text-[10px] lg:text-xs cursor-pointer text-gray-400 hover:text-primeColor duration-300"
+                  className="text-[10px] lg:text-xs cursor-pointer text-white hover:text-black duration-300"
                 >
                   <ImPlus />
                 </span>

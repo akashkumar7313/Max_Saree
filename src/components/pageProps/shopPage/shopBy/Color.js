@@ -50,11 +50,11 @@ const Color = () => {
             {colors.map((item) => (
               <li
                 key={item._id}
-                className="border-b-[1px] border-b-[#F0F0F0] pb-2 flex items-center gap-2"
+                className="border-b-[1px] text-white font-semibold hover:text-black cursor-pointer border-b-[#F0F0F0] pb-2 flex items-center gap-2"
               >
                 <span
                   style={{ background: item.base }}
-                  className={`w-3 h-3 bg-gray-500 rounded-full`}
+                  className={`w-4 h-4 bg-gray-500 rounded-full border border-black`}
                 ></span>
                 {item.title}
               </li>

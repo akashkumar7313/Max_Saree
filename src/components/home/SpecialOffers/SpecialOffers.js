@@ -1,53 +1,121 @@
 import React from "react";
+import Slider from "react-slick";
 import Heading from "../Products/Heading";
 import Product from "../Products/Product";
-import image1 from  "../../../assets/images/products/newArrival/Velvet-Saree-For-Farewell-Party-Latest-Design-2.webp"
+import image1 from "../../../assets/images/products/newArrival/Velvet-Saree-For-Farewell-Party-Latest-Design-2.webp"
+import SampleNextArrow from "./SampleNextArrow";
+import SamplePrevArrow from "./SamplePrevArrow";
 
-
-const SpecialOffers = () => {
+const NewArrivals = () => {
+  const settings = {
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 3000, 
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1025,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+    ],
+  };
   return (
-    <div className="w-full pb-20">
+    <div className="w-full pb-16">
       <Heading heading="Special Offers" />
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 lgl:grid-cols-3 xl:grid-cols-4 gap-10">
-        <Product
-          _id="1101"
-          img={image1}
-          productName="Cap for Boys"
-          price="35.00"
-          color="Blank and White"
-          badge={true}
-          des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
-        />
-        <Product
-          _id="1102"
-          img={image1}
-          productName="Tea Table"
-          price="180.00"
-          color="Gray"
-          badge={true}
-          des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
-        />
-        <Product
-          _id="1103"
-          img={image1}
-          productName="Headphones"
-          price="25.00"
-          color="Mixed"
-          badge={true}
-          des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
-        />
-        <Product
-          _id="1104"
-          img={image1}
-          productName="Sun glasses"
-          price="220.00"
-          color="Black"
-          badge={true}
-          des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
-        />
-      </div>
+      <Slider {...settings}>
+        <div className="px-2">
+          <Product
+            _id="100001"
+            img={image1}
+            productName="Round Table Clock"
+            price="44.00"
+            color="Black"
+            badge={true}
+            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
+          />
+        </div>
+        <div className="px-2">
+          <Product
+            _id="100001"
+            img={image1}
+            productName="Round Table Clock"
+            price="44.00"
+            color="Black"
+            badge={true}
+            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
+          />
+        </div>
+        <div className="px-2">
+          <Product
+            _id="100001"
+            img={image1}
+            productName="Round Table Clock"
+            price="44.00"
+            color="Black"
+            badge={true}
+            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
+          />
+        </div>
+        <div className="px-2">
+          <Product
+            _id="100001"
+            img={image1}
+            productName="Round Table Clock"
+            price="44.00"
+            color="Black"
+            badge={true}
+            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
+          />
+        </div>
+        <div className="px-2">
+          <Product
+            _id="100001"
+            img={image1}
+            productName="Round Table Clock"
+            price="44.00"
+            color="Black"
+            badge={true}
+            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
+          />
+        </div>
+        <div className="px-2">
+          <Product
+            _id="100001"
+            img={image1}
+            productName="Round Table Clock"
+            price="44.00"
+            color="Black"
+            badge={true}
+            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
+          />
+        </div>
+      </Slider>
     </div>
   );
 };
 
-export default SpecialOffers;
+export default NewArrivals;

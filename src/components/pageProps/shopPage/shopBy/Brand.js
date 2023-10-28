@@ -33,7 +33,7 @@ const Brand = () => {
         onClick={() => setShowBrands(!showBrands)}
         className="cursor-pointer"
       >
-        <NavTitle title="Shop by Brand" icons={true} />
+        <NavTitle title="Shop by Brand" icons={true}/>
       </div>
       {showBrands && (
         <motion.div
@@ -41,11 +41,11 @@ const Brand = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <ul className="flex flex-col gap-4 text-sm lg:text-base text-[#767676]">
+          <ul className="flex flex-col gap-4 text-sm lg:text-base text-white font-semibold">
             {brands.map((item) => (
               <li
                 key={item._id}
-                className="border-b-[1px] border-b-[#F0F0F0] pb-2 flex items-center gap-2 hover:text-primeColor hover:border-gray-400 duration-300"
+                className="border-b-[1px] border-b-[#F0F0F0] pb-2 flex items-center gap-2 hover:text-black cursor-pointer hover:border-gray-400 duration-300"
               >
                 {item.title}
               </li>
