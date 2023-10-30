@@ -9,7 +9,7 @@ import SamplePrevArrow from "./SamplePrevArrow";
 const NewArrivals = () => {
   const settings = {
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     infinite: true,
     autoplay: true,

@@ -12,8 +12,6 @@ import Header from "./components/home/Header/Header";
 import HeaderBottom from "./components/home/Header/HeaderBottom";
 import SpecialCase from "./components/SpecialCase/SpecialCase";
 import About from "./pages/About/About";
-import SignIn from "./pages/Account/SignIn";
-import SignUp from "./pages/Account/SignUp";
 import Cart from "./pages/Cart/Cart";
 import Contact from "./pages/Contact/Contact";
 import Home from "./pages/Home/Home";
@@ -22,6 +20,11 @@ import Offer from "./pages/Offer/Offer";
 import Payment from "./pages/payment/Payment";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Shop from "./pages/Shop/Shop";
+import Brands from "./components/Admin/Brands";
+import Login from "./components/Admin/Login";
+import HomePage from "./components/Admin/HomePage";
+import Banner from "./components/Admin/Banner";
+import Saree from "./components/Admin/Saree";
 
 const Layout = () => {
   return (
@@ -52,8 +55,11 @@ const router = createBrowserRouter(
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/paymentgateway" element={<Payment />}></Route>
       </Route>
-      <Route path="/signup" element={<SignUp />}></Route>
-      <Route path="/signin" element={<SignIn />}></Route>
+      <Route path="/signin" element={<Login />}></Route>
+      <Route path="/Home" element={<HomePage />}></Route>
+      <Route path="/Admin/Banner" element={<Banner />}></Route>
+      <Route path="/Admin/Saree" element={<Saree />}></Route>
+      <Route path="/Admin/Brands" element={<Brands />}></Route>
     </Route>
   )
 );

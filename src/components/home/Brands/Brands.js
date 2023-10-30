@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Image from "../../designLayouts/Image";
+import { storage } from '../../../db/firebase';
+import Heading from "../Products/Heading";
 import Slider from "react-slick";
-import Image from "../designLayouts/Image";
-import { storage } from '../../db/firebase';
 
-const Banner = () => {
+const Brands = () => {
   const [images, setImages] = useState([]);
   const [dotActive, setDocActive] = useState(0);
   const settings = {
     dots: true,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 3000, 
-    slidesToShow: 1,
+    autoplaySpeed: 5000,
+    slidesToShow: 3,
     slidesToScroll: 1,
     arrows: false,
     beforeChange: (prev, next) => {
@@ -27,7 +28,6 @@ const Banner = () => {
           transform: "translateY(-50%)",
         }}
       >
-        <ul style={{ margin: "0px" }}> {dots} </ul>
       </div>
     ),
     customPaging: (i) => (
@@ -35,19 +35,19 @@ const Banner = () => {
         style={
           i === dotActive
             ? {
-                width: "30px",
-                color: "#262626",
-                borderRight: "3px #262626 solid",
-                padding: "8px 0",
-                cursor: "pointer",
-              }
+              width: "30px",
+              color: "#262626",
+              borderRight: "3px #262626 solid",
+              padding: "8px 0",
+              cursor: "pointer",
+            }
             : {
-                width: "30px",
-                color: "transparent",
-                borderRight: "3px white solid",
-                padding: "8px 0",
-                cursor: "pointer",
-              }
+              width: "30px",
+              color: "transparent",
+              borderRight: "3px white solid",
+              padding: "8px 0",
+              cursor: "pointer",
+            }
         }
       >
         0{i + 1}
@@ -75,19 +75,19 @@ const Banner = () => {
               style={
                 i === dotActive
                   ? {
-                      width: "25px",
-                      color: "#262626",
-                      borderRight: "3px #262626 solid",
-                      cursor: "pointer",
-                      fontSize: "12px",
-                    }
+                    width: "25px",
+                    color: "#262626",
+                    borderRight: "3px #262626 solid",
+                    cursor: "pointer",
+                    fontSize: "12px",
+                  }
                   : {
-                      width: "25px",
-                      color: "transparent",
-                      borderRight: "3px white solid",
-                      cursor: "pointer",
-                      fontSize: "12px",
-                    }
+                    width: "25px",
+                    color: "transparent",
+                    borderRight: "3px white solid",
+                    cursor: "pointer",
+                    fontSize: "12px",
+                  }
               }
             >
               0{i + 1}
@@ -98,11 +98,10 @@ const Banner = () => {
     ],
   };
 
-
   useEffect(() => {
     async function fetchImages() {
       const imageUrls = [];
-      const storageRef = storage.ref('Banner'); // Replace 'images' with your storage folder name
+      const storageRef = storage.ref('Brands'); // Replace 'images' with your storage folder name
 
       try {
         const imageList = await storageRef.listAll();
@@ -122,18 +121,21 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="w-full bg-white">
-      <Slider {...settings}>
-        {images.map((imgSrc, index) => (
-          <Link to="/offer" key={index}>
-            <div>
-              <Image imgSrc={imgSrc} />
-            </div>
-          </Link>
-        ))}
-      </Slider>
+    <div className="pt-5 pb-5">
+      <Heading heading="Brands" />
+      <div className="w-full">
+        <Slider {...settings}>
+          {images.map((imgSrc, index) => (
+            <Link to="/shop" key={index}>
+              <div className="pl-5">
+                <Image imgSrc={imgSrc}  />
+              </div>
+            </Link>
+          ))}
+        </Slider>
+      </div>
     </div>
   );
 };
 
-export default Banner;
+export default Brands;
