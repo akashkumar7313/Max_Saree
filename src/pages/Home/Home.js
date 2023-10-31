@@ -1,7 +1,7 @@
 import React from "react";
 import Banner from "../../components/Banner/Banner";
 import BannerBottom from "../../components/Banner/BannerBottom";
-import BestSellers from "../../components/home/BestSellers/BestSellers";
+import BestSellingProducts from "../../components/home/BestSellingProducts/BestSellingProducts";
 import NewArrivals from "../../components/home/NewArrivals/NewArrivals";
 import Brands from "../../components/home/Brands/Brands";
 import SpecialOffers from "../../components/home/SpecialOffers/SpecialOffers";
@@ -15,7 +15,7 @@ const Home = () => {
       <div className="max-w-container mx-auto px-4">
         <Brands />
         <NewArrivals />
-        <BestSellers />
+        <BestSellingProducts />
         <YearProduct />
         <SpecialOffers />
       </div>

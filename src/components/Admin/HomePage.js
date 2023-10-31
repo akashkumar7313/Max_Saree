@@ -114,7 +114,7 @@ export default function HomePage() {
           <Accordion>
             <ListItem className="p-0 flex items-center hover:bg-red-800 hover:text-white border">
               <NavLink
-                to="/Admin/Saree"
+                to="/Admin/NewArrivals"
                 activeClassName="text-blue-500" // Add the desired active class name
                 className="border-b-0 p-3 flex items-center"
               >
@@ -122,7 +122,7 @@ export default function HomePage() {
                   <FcDebt className="h-5 w-5 mr-2" />
                 </ListItemPrefix>
                 <Typography color="blue-gray" className="font-normal ">
-                  Saree
+                New Arrivals
                 </Typography>
               </NavLink>
             </ListItem>
@@ -130,7 +130,7 @@ export default function HomePage() {
           <Accordion>
             <ListItem className="p-0 flex items-center hover:bg-red-800 hover:text-white border">
               <NavLink
-                to="/OurDirectors/Images"
+                to="/Admin/BestSellingProducts"
                 activeClassName="text-blue-500" // Add the desired active class name
                 className="border-b-0 p-3 flex items-center"
               >
@@ -138,14 +138,30 @@ export default function HomePage() {
                   <FcBusinessman className="h-5 w-5 mr-2" />
                 </ListItemPrefix>
                 <Typography color="blue-gray" className="font-normal ">
-                  Directors Images
+                  Best Selling Product
+                </Typography>
+              </NavLink>
+            </ListItem>
+          </Accordion>
+          <Accordion>
+            <ListItem className="p-0 flex items-center hover:bg-red-800 hover:text-white border">
+              <NavLink
+                to="/Admin/SpecialOffers"
+                activeClassName="text-blue-500" // Add the desired active class name
+                className="border-b-0 p-3 flex items-center"
+              >
+                <ListItemPrefix>
+                  <FcBusinessman className="h-5 w-5 mr-2" />
+                </ListItemPrefix>
+                <Typography color="blue-gray" className="font-normal ">
+                Special Offers
                 </Typography>
               </NavLink>
             </ListItem>
           </Accordion>
           <hr className="my-2 border-blue-gray-50" />
           <ListItem
-            className=" flex text-red-700 mt-[280px] hover:text-white border border-red-800 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
+            className=" flex text-red-700 mt-[230px] hover:text-white border border-red-800 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
             onClick={() => handleLogout()}
           >
             <ListItemPrefix>

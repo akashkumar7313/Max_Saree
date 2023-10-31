@@ -24,7 +24,9 @@ import Brands from "./components/Admin/Brands";
 import Login from "./components/Admin/Login";
 import HomePage from "./components/Admin/HomePage";
 import Banner from "./components/Admin/Banner";
-import Saree from "./components/Admin/Saree";
+import NewArrivals from "./components/Admin/NewArrivals";
+import BestSellingProducts from "./components/Admin/BestSellingProducts";
+import SpecialOffers from "./components/Admin/SpecialOffers";
 
 const Layout = () => {
   return (
@@ -58,8 +60,10 @@ const router = createBrowserRouter(
       <Route path="/signin" element={<Login />}></Route>
       <Route path="/Home" element={<HomePage />}></Route>
       <Route path="/Admin/Banner" element={<Banner />}></Route>
-      <Route path="/Admin/Saree" element={<Saree />}></Route>
+      <Route path="/Admin/NewArrivals" element={<NewArrivals />}></Route>
       <Route path="/Admin/Brands" element={<Brands />}></Route>
+      <Route path="/Admin/BestSellingProducts" element={<BestSellingProducts />}></Route>
+      <Route path="/Admin/SpecialOffers" element={<SpecialOffers />}></Route>
     </Route>
   )
 );

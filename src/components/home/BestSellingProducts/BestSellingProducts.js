@@ -6,14 +6,15 @@ import SampleNextArrow from "./SampleNextArrow";
 import SamplePrevArrow from "./SamplePrevArrow";
 import { default as firebase } from "../../../db/firebase";
 
-const NewArrivals = () => {
+const BestSellingProducts = () => {
   const settings = {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 3000,
+    loop: true,
+    autoplaySpeed: 3000, 
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
@@ -41,13 +42,13 @@ const NewArrivals = () => {
           infinite: true,
         },
       },
-    ]
+    ],
   };
 
   const [products, setProducts] = useState([]); // Declare products state
 
   const fetchProducts = useCallback(() => {
-    const productsRef = firebase.database().ref("NewArrivals");
+    const productsRef = firebase.database().ref("BestSellingProducts");
 
     productsRef.on("value", (snapshot) => {
       const products = [];
@@ -72,7 +73,7 @@ const NewArrivals = () => {
 
   return (
     <div className="w-full pb-16">
-      <Heading heading="New Arrivals" />
+      <Heading heading="Best Selling Products" />
       <Slider {...settings}>
         {products.map((product) => (
           <div key={product.id} className="px-2">
@@ -92,4 +93,4 @@ const NewArrivals = () => {
   );
 };
 
-export default NewArrivals;
+export default BestSellingProducts;

@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Slider from "react-slick";
 import Heading from "../Products/Heading";
 import Product from "../Products/Product";
-import image1 from "../../../assets/images/products/newArrival/Velvet-Saree-For-Farewell-Party-Latest-Design-2.webp"
 import SampleNextArrow from "./SampleNextArrow";
 import SamplePrevArrow from "./SamplePrevArrow";
+import { default as firebase } from "../../../db/firebase";
 
-const NewArrivals = () => {
+const SpecialOffers = () => {
   const settings = {
     speed: 500,
     slidesToShow: 4,
@@ -43,79 +43,53 @@ const NewArrivals = () => {
       },
     ],
   };
+
+  const [products, setProducts] = useState([]); // Declare products state
+
+  const fetchProducts = useCallback(() => {
+    const productsRef = firebase.database().ref("SpecialOffers");
+
+    productsRef.on("value", (snapshot) => {
+      const products = [];
+      snapshot.forEach((childSnapshot) => {
+        const product = childSnapshot.val();
+        products.push({
+          id: childSnapshot.key,
+          img: product.img,
+          productName: product.productName,
+          price: product.price,
+          color: product.color,
+          description: product.description,
+        });
+      });
+      setProducts(products);
+    });
+  }, []);
+
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
+
   return (
     <div className="w-full pb-16">
       <Heading heading="Special Offers" />
       <Slider {...settings}>
-        <div className="px-2">
-          <Product
-            _id="100001"
-            img={image1}
-            productName="Round Table Clock"
-            price="44.00"
-            color="Black"
-            badge={true}
-            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
-          />
-        </div>
-        <div className="px-2">
-          <Product
-            _id="100001"
-            img={image1}
-            productName="Round Table Clock"
-            price="44.00"
-            color="Black"
-            badge={true}
-            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
-          />
-        </div>
-        <div className="px-2">
-          <Product
-            _id="100001"
-            img={image1}
-            productName="Round Table Clock"
-            price="44.00"
-            color="Black"
-            badge={true}
-            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
-          />
-        </div>
-        <div className="px-2">
-          <Product
-            _id="100001"
-            img={image1}
-            productName="Round Table Clock"
-            price="44.00"
-            color="Black"
-            badge={true}
-            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
-          />
-        </div>
-        <div className="px-2">
-          <Product
-            _id="100001"
-            img={image1}
-            productName="Round Table Clock"
-            price="44.00"
-            color="Black"
-            badge={true}
-            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
-          />
-        </div>
-        <div className="px-2">
-          <Product
-            _id="100001"
-            img={image1}
-            productName="Round Table Clock"
-            price="44.00"
-            color="Black"
-            badge={true}
-            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
-          />
-        </div>
+        {products.map((product) => (
+          <div key={product.id} className="px-2">
+            <Product
+              _id={product.id}
+              img={product.img}
+              productName={product.productName}
+              price={product.price}
+              color={product.color}
+              badge={true}
+              des={product.description}
+            />
+          </div>
+        ))}
       </Slider>
     </div>
   );
 };
 
-export default NewArrivals;
+export default SpecialOffers;
