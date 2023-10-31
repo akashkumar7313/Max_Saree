@@ -27,6 +27,9 @@ import Banner from "./components/Admin/Banner";
 import NewArrivals from "./components/Admin/NewArrivals";
 import BestSellingProducts from "./components/Admin/BestSellingProducts";
 import SpecialOffers from "./components/Admin/SpecialOffers";
+import SareeCollection from "./pages/Shop/SareeCollection";
+import SuitCollection from "./pages/Shop/SuitCollection";
+import OtherCollection from "./pages/Shop/OtherCollection";
 
 const Layout = () => {
   return (
@@ -53,6 +56,9 @@ const router = createBrowserRouter(
         <Route path="/journal" element={<Journal />}></Route>
         {/* ==================== Header Navlink End here ===================== */}
         <Route path="/offer" element={<Offer />}></Route>
+        <Route path="/Shop/SareeCollection" element={<SareeCollection />}></Route>
+        <Route path="/Shop/SuitCollection" element={<SuitCollection />}></Route>
+        <Route path="/Shop/OtherCollection" element={<OtherCollection />}></Route>
         <Route path="/product/:_id" element={<ProductDetails />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/paymentgateway" element={<Payment />}></Route>

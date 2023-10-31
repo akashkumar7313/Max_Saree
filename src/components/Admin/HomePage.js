@@ -4,11 +4,10 @@ import {
   Typography,
   List,
   ListItem,
-  ListItemPrefix,
   Accordion,
 } from "@material-tailwind/react";
 import { PowerIcon } from "@heroicons/react/24/solid";
-import { FcBusinessman, FcDebt, FcFinePrint, FcHome } from "react-icons/fc";
+import { FcAddImage, FcBusinessman, FcBusinesswoman, FcCurrencyExchange, FcDebian, FcDebt, FcEditImage, FcHome } from "react-icons/fc";
 import logo from "../../assets/images/logo.png";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -54,7 +53,7 @@ export default function HomePage() {
     <div
       className="bg-cover bg-center h-screen flex "
       style={{
-        backgroundImage: `url('https://getwallpapers.com/wallpaper/full/0/5/2/129199.jpg')`,
+        backgroundImage: `url('https://images.unsplash.com/photo-1698414675352-8954e00c8553?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
       }}
     >
       <Card className="h-[calc(100vh)] w-[20%] p-4 shadow-xl shadow-blue-gray-900/5 rounded-none">
@@ -70,9 +69,7 @@ export default function HomePage() {
                 activeClassName="text-blue-500"
                 className="border-b-0 p-3 flex items-center"
               >
-                <ListItemPrefix>
-                  <FcHome className="h-5 w-5 mr-2" />
-                </ListItemPrefix>
+                <FcHome className="h-5 w-5 mr-2" />
                 <Typography color="blue-gray" className="font-normal">
                   Home
                 </Typography>
@@ -86,9 +83,7 @@ export default function HomePage() {
                 activeClassName="text-blue-500" // Add the desired active class name
                 className="border-b-0 p-3 flex items-center"
               >
-                <ListItemPrefix>
-                  <FcFinePrint className="h-5 w-5 mr-2" />
-                </ListItemPrefix>
+                <FcAddImage className="h-5 w-5 mr-2" />
                 <Typography color="blue-gray" className="font-normal">
                   Banner
                 </Typography>
@@ -102,11 +97,9 @@ export default function HomePage() {
                 activeClassName="text-blue-500" // Add the desired active class name
                 className="border-b-0 p-3 flex items-center"
               >
-                <ListItemPrefix>
-                  <FcFinePrint className="h-5 w-5 mr-2" />
-                </ListItemPrefix>
+                <FcDebian className="h-5 w-5 mr-2" />
                 <Typography color="blue-gray" className="font-normal">
-                Brands
+                  Brands
                 </Typography>
               </NavLink>
             </ListItem>
@@ -118,11 +111,9 @@ export default function HomePage() {
                 activeClassName="text-blue-500" // Add the desired active class name
                 className="border-b-0 p-3 flex items-center"
               >
-                <ListItemPrefix>
-                  <FcDebt className="h-5 w-5 mr-2" />
-                </ListItemPrefix>
+                <FcEditImage className="h-5 w-5 mr-2" />
                 <Typography color="blue-gray" className="font-normal ">
-                New Arrivals
+                  New Arrivals
                 </Typography>
               </NavLink>
             </ListItem>
@@ -134,11 +125,9 @@ export default function HomePage() {
                 activeClassName="text-blue-500" // Add the desired active class name
                 className="border-b-0 p-3 flex items-center"
               >
-                <ListItemPrefix>
-                  <FcBusinessman className="h-5 w-5 mr-2" />
-                </ListItemPrefix>
+                <FcCurrencyExchange className="h-5 w-5 mr-2" />
                 <Typography color="blue-gray" className="font-normal ">
-                  Best Selling Product
+                  Best Selling Products
                 </Typography>
               </NavLink>
             </ListItem>
@@ -150,34 +139,71 @@ export default function HomePage() {
                 activeClassName="text-blue-500" // Add the desired active class name
                 className="border-b-0 p-3 flex items-center"
               >
-                <ListItemPrefix>
-                  <FcBusinessman className="h-5 w-5 mr-2" />
-                </ListItemPrefix>
+                <FcDebt className="h-5 w-5 mr-2" />
                 <Typography color="blue-gray" className="font-normal ">
-                Special Offers
+                  Special Offers
+                </Typography>
+              </NavLink>
+            </ListItem>
+          </Accordion>
+          <Accordion>
+            <ListItem className="p-0 flex items-center hover:bg-red-800 hover:text-white border">
+              <NavLink
+                to="/Admin/SpecialOffers"
+                activeClassName="text-blue-500" // Add the desired active class name
+                className="border-b-0 p-3 flex items-center"
+              >
+                <FcBusinesswoman className="h-5 w-5 mr-2" />
+                <Typography color="blue-gray" className="font-normal ">
+                  Saree
+                </Typography>
+              </NavLink>
+            </ListItem>
+          </Accordion>
+          <Accordion>
+            <ListItem className="p-0 flex items-center hover:bg-red-800 hover:text-white border">
+              <NavLink
+                to="/Admin/SpecialOffers"
+                activeClassName="text-blue-500" // Add the desired active class name
+                className="border-b-0 p-3 flex items-center"
+              >
+                <FcBusinesswoman className="h-5 w-5 mr-2" />
+                <Typography color="blue-gray" className="font-normal ">
+                  Suit
+                </Typography>
+              </NavLink>
+            </ListItem>
+          </Accordion>
+          <Accordion>
+            <ListItem className="p-0 flex items-center hover:bg-red-800 hover:text-white border">
+              <NavLink
+                to="/Admin/SpecialOffers"
+                activeClassName="text-blue-500" // Add the desired active class name
+                className="border-b-0 p-3 flex items-center"
+              >
+                <FcBusinessman className="h-5 w-5 mr-2" />
+                <Typography color="blue-gray" className="font-normal ">
+                  Other Cloth
                 </Typography>
               </NavLink>
             </ListItem>
           </Accordion>
           <hr className="my-2 border-blue-gray-50" />
           <ListItem
-            className=" flex text-red-700 mt-[230px] hover:text-white border border-red-800 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
+            className=" flex text-red-700 mt-[60px] hover:text-white border border-red-800 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
             onClick={() => handleLogout()}
           >
-            <ListItemPrefix>
-              <PowerIcon className="h-5 w-5 mr-2" />
-            </ListItemPrefix>
+            <PowerIcon className="h-5 w-5 mr-2" />
             Logout
           </ListItem>
         </List>
       </Card>
-      <div className="w-[80%] pt-56 text-5xl">
+      <div className="w-[80%] pt-60 text-5xl">
         <div className="">
           {user ? (
-            <div className="text-white grid justify-center items-center">
-              <h1 className="font-semibold">Hello, <span className="  text-orange-400 font-extrabold text-[65px]"> {user.displayName}{" "}! </span>How are you?</h1>
-              <span className=" text-orange-400 font-bold flex justify-end mt-4">{user.email}</span>
-              {/* Your protected content */}
+            <div className="text-white grid justify-center text-[55px] items-center">
+              <h1 className="font-extrabold">Hello, <span className="  text-orange-600 font-extrabold text-[75px]"> {user.displayName}{" "}! </span>How are you?</h1>
+              <span className=" text-orange-600 font-extrabold text-[55px] flex justify-end mt-4">{user.email}</span>
             </div>
           ) : (
             <p>Loading...</p>
