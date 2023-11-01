@@ -149,13 +149,13 @@ export default function HomePage() {
           <Accordion>
             <ListItem className="p-0 flex items-center hover:bg-red-800 hover:text-white border">
               <NavLink
-                to="/Admin/SpecialOffers"
+                to="/Admin/SareeCollections"
                 activeClassName="text-blue-500" // Add the desired active class name
                 className="border-b-0 p-3 flex items-center"
               >
                 <FcBusinesswoman className="h-5 w-5 mr-2" />
                 <Typography color="blue-gray" className="font-normal ">
-                  Saree
+                  Saree Collection
                 </Typography>
               </NavLink>
             </ListItem>
@@ -163,13 +163,13 @@ export default function HomePage() {
           <Accordion>
             <ListItem className="p-0 flex items-center hover:bg-red-800 hover:text-white border">
               <NavLink
-                to="/Admin/SpecialOffers"
+                to="/Admin/SuitCollections"
                 activeClassName="text-blue-500" // Add the desired active class name
                 className="border-b-0 p-3 flex items-center"
               >
                 <FcBusinesswoman className="h-5 w-5 mr-2" />
                 <Typography color="blue-gray" className="font-normal ">
-                  Suit
+                  Suit Collection
                 </Typography>
               </NavLink>
             </ListItem>
@@ -177,13 +177,13 @@ export default function HomePage() {
           <Accordion>
             <ListItem className="p-0 flex items-center hover:bg-red-800 hover:text-white border">
               <NavLink
-                to="/Admin/SpecialOffers"
+                to="/Admin/OtherCollections"
                 activeClassName="text-blue-500" // Add the desired active class name
                 className="border-b-0 p-3 flex items-center"
               >
                 <FcBusinessman className="h-5 w-5 mr-2" />
                 <Typography color="blue-gray" className="font-normal ">
-                  Other Cloth
+                  Other Collection
                 </Typography>
               </NavLink>
             </ListItem>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Pagination from "../../components/pageProps/shopPage/Pagination";
+import SareePagination from "../../components/pageProps/shopPage/SareePagination";
 import ProductBanner from "../../components/pageProps/shopPage/ProductBanner";
 import Breadcrumbs from "../../components/pageProps/Breadcrumbs";
 // import ShopSideNav from "../../components/pageProps/shopPage/ShopSideNav";
@@ -23,7 +23,7 @@ const SareeCollection = () => {
                 <div>
                     <div className="w-full mdl:w-[100%] lgl:w-[100%] h-full flex flex-col gap-10">
                         <ProductBanner itemsPerPageFromBanner={itemsPerPageFromBanner} />
-                        <Pagination itemsPerPage={itemsPerPage} />
+                        <SareePagination itemsPerPage={itemsPerPage} />
                     </div>
                 </div>
             </div>

@@ -30,6 +30,9 @@ import SpecialOffers from "./components/Admin/SpecialOffers";
 import SareeCollection from "./pages/Shop/SareeCollection";
 import SuitCollection from "./pages/Shop/SuitCollection";
 import OtherCollection from "./pages/Shop/OtherCollection";
+import SareeCollections from "./components/Admin/SareeCollections";
+import SuitCollections from "./components/Admin/SuitCollections";
+import OtherCollections from "./components/Admin/OtherCollections";
 
 const Layout = () => {
   return (
@@ -63,13 +66,16 @@ const router = createBrowserRouter(
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/paymentgateway" element={<Payment />}></Route>
       </Route>
-      <Route path="/signin" element={<Login />}></Route>
+      <Route path="/Admin" element={<Login />}></Route>
       <Route path="/Home" element={<HomePage />}></Route>
       <Route path="/Admin/Banner" element={<Banner />}></Route>
       <Route path="/Admin/NewArrivals" element={<NewArrivals />}></Route>
       <Route path="/Admin/Brands" element={<Brands />}></Route>
       <Route path="/Admin/BestSellingProducts" element={<BestSellingProducts />}></Route>
       <Route path="/Admin/SpecialOffers" element={<SpecialOffers />}></Route>
+      <Route path="/Admin/SareeCollections" element={<SareeCollections />}></Route>
+      <Route path="/Admin/SuitCollections" element={<SuitCollections />}></Route>
+      <Route path="/Admin/OtherCollections" element={<OtherCollections />}></Route>
     </Route>
   )
 );

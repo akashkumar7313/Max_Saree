@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Breadcrumbs from "../../components/pageProps/Breadcrumbs";
 import { resetCart } from "../../redux/maxSareeSlice";
-import { emptyCart } from "../../assets/images/index";
+import emptyCart from "../../assets/images/empty-cart.webp";
 import ItemCard from "./ItemCard";
 
 const Cart = () => {
@@ -106,11 +106,11 @@ const Cart = () => {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.4 }}
-          className="flex flex-col mdl:flex-row justify-center items-center gap-4 pb-20"
+          className="flex flex-col mdl:flex-row justify-center items-center gap-4 pb-10"
         >
           <div>
             <img
-              className="w-80 rounded-lg p-4 mx-auto"
+              className="w-[400px] rounded-lg p-4 mx-auto"
               src={emptyCart}
               alt="emptyCart"
             />

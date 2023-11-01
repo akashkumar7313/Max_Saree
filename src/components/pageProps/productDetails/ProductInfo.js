@@ -4,6 +4,22 @@ import { addToCart } from "../../../redux/maxSareeSlice";
 
 const ProductInfo = ({ productInfo }) => {
   const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    // Dispatch the addToCart action with the product information.
+    dispatch(
+      addToCart({
+        _id: productInfo.id,
+        name: productInfo.productName,
+        quantity: 1, // Add a single item.
+        image: productInfo.img,
+        badge: productInfo.badge,
+        price: productInfo.price,
+        colors: productInfo.color,
+      })
+    );
+  };
+
   return (
     <div className="flex flex-col gap-5">
       <h2 className="text-4xl font-semibold">{productInfo.productName}</h2>
@@ -14,20 +30,8 @@ const ProductInfo = ({ productInfo }) => {
         <span className="font-normal">Colors:</span> {productInfo.color}
       </p>
       <button
-        onClick={() =>
-          dispatch(
-            addToCart({
-              _id: productInfo.id,
-              name: productInfo.productName,
-              quantity: 1,
-              image: productInfo.img,
-              badge: productInfo.badge,
-              price: productInfo.price,
-              colors: productInfo.color,
-            })
-          )
-        }
-        className="w-full py-4 bg-primeColor hover:bg-black duration-300 text-white text-lg font-titleFont"
+        onClick={handleAddToCart}
+        className="w-full py-4 bg-primeColor hover-bg-black duration-300 text-white text-lg font-titleFont"
       >
         Add to Cart
       </button>

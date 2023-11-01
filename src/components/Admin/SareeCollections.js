@@ -4,7 +4,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import { Breadcrumbs } from "@material-tailwind/react";
 
-const SpecialOffers = () => {
+const SareeCollections = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [selectedImageName, setSelectedImageName] = useState("");
@@ -15,7 +15,7 @@ const SpecialOffers = () => {
   const [productDescription, setProductDescription] = useState("");
 
   const fetchProducts = useCallback(() => {
-    const productsRef = firebase.database().ref("SpecialOffers");
+    const productsRef = firebase.database().ref("SareeCollection");
 
     productsRef.on("value", (snapshot) => {
       const products = [];
@@ -49,7 +49,7 @@ const SpecialOffers = () => {
   const handleSaveProduct = () => {
     if (selectedImage && productName && productPrice && productColor && productDescription) {
       setUploading(true);
-      const storageRef = firebase.storage().ref(`SpecialOffers/${selectedImage.name}`);
+      const storageRef = firebase.storage().ref(`SareeCollection/${selectedImage.name}`);
       const uploadTask = storageRef.put(selectedImage);
 
       uploadTask.on(
@@ -60,7 +60,7 @@ const SpecialOffers = () => {
         },
         () => {
           uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-            firebase.database().ref("SpecialOffers").push({
+            firebase.database().ref("SareeCollection").push({
               img: downloadURL,
               productName: productName,
               price: productPrice,
@@ -87,8 +87,8 @@ const SpecialOffers = () => {
       // Confirm the delete action with a user prompt
   
       // Remove the product from Firebase
-      const productRef = firebase.database().ref(`SpecialOffers/${productId}`);
-      const imageRef = firebase.database().ref(`SpecialOffers`).orderByChild("img").equalTo(products.find(product => product.id === productId).img);
+      const productRef = firebase.database().ref(`SareeCollection/${productId}`);
+      const imageRef = firebase.database().ref(`SareeCollection`).orderByChild("img").equalTo(products.find(product => product.id === productId).img);
   
       productRef.remove()
         .then(() => {
@@ -260,4 +260,4 @@ const SpecialOffers = () => {
   );
 };
 
-export default SpecialOffers;
+export default SareeCollections;

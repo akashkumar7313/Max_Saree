@@ -22,14 +22,14 @@ function Items({ currentItems }) {
   );
 }
 
-const Pagination = ({ itemsPerPage }) => {
+const SuitPagination = ({ itemsPerPage }) => {
   const [products, setProducts] = useState([]);
   const [itemOffset, setItemOffset] = useState(0);
   const [itemStart, setItemStart] = useState(1);
   const endOffset = itemOffset + itemsPerPage;
 
   const fetchProducts = useCallback(() => {
-    const productsRef = firebase.database().ref("SpecialOffers");
+    const productsRef = firebase.database().ref("SuitCollections");
 
     productsRef.on("value", (snapshot) => {
       const products = [];
@@ -87,4 +87,4 @@ const Pagination = ({ itemsPerPage }) => {
   );
 };
 
-export default Pagination;
+export default SuitPagination;
