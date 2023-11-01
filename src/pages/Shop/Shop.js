@@ -6,15 +6,17 @@ import SuitCollection from "./SuitCollection";
 import OtherCollection from "./OtherCollection";
 
 const ProductCard = ({ to, title, image }) => (
-  <Link to={to} className="block h-[300px] w-[500px] no-underline">
-    <div className="bg-white border border-gray-200 shadow-md rounded-lg p-4 transition transform hover:scale-105">
-      <img src={image} alt={title} className="w-full h-48 object-cover rounded-t-lg" />
-      <div className="p-4">
-        <h2 className="text-xl font-semibold mb-2 text-gray-900">{title}</h2>
-        <p className="text-blue-600 hover:underline">Explore {title}</p>
-      </div>
+<Link to={to} className="block h-[290px] md:w-[500px] no-underline">
+  <div className="bg-white border border-gray-200 shadow-md rounded-lg p-4 transition transform hover:scale-105">
+    <img src={image} alt={title} className="w-full h-[210px] object-cover rounded-t-lg" />
+    <div className="mt-2 items-center justify-center text-center">
+      <h2 className="text-2xl md:text-4xl font-extrabold text-gray-900 mb-2 break-words">
+        {title}
+      </h2>
+      <p className="text-blue-600 hover:underline break-words">Explore {title}</p>
     </div>
-  </Link>
+  </div>
+</Link>
 );
 
 const Shop = () => {

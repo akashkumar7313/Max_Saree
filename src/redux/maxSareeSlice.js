@@ -5,8 +5,8 @@ const initialState = {
   products: [],
 };
 
-export const orebiSlice = createSlice({
-  name: "orebi",
+export const maxSareeSlice = createSlice({
+  name: "maxSaree",
   initialState,
   reducers: {
     addToCart: (state, action) => {
@@ -54,5 +54,5 @@ export const {
   drecreaseQuantity,
   deleteItem,
   resetCart,
-} = orebiSlice.actions;
-export default orebiSlice.reducer;
+} = maxSareeSlice.actions;
+export default maxSareeSlice.reducer;

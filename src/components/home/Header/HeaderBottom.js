@@ -5,14 +5,15 @@ import { FaSearch, FaUser, FaCaretDown, FaShoppingCart } from "react-icons/fa";
 import Flex from "../../designLayouts/Flex";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { paginationItems } from "../../../constants";
+import { default as firebase } from "../../../db/firebase";
 
 const HeaderBottom = () => {
-  const products = useSelector((state) => state.orebiReducer.products);
+  const products = useSelector((state) => state.maxSareeReducer.products);
   const [show, setShow] = useState(false);
   const [showUser, setShowUser] = useState(false);
   const navigate = useNavigate();
   const ref = useRef();
+
   useEffect(() => {
     document.body.addEventListener("click", (e) => {
       if (ref.current.contains(e.target)) {
@@ -28,15 +29,44 @@ const HeaderBottom = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
 
   const handleSearch = (e) => {
-    setSearchQuery(e.target.value);
-  };
+    const query = e.target.value;
 
-  useEffect(() => {
-    const filtered = paginationItems.filter((item) =>
-      item.productName.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    setFilteredProducts(filtered);
-  }, [searchQuery]);
+    console.log("Search Query:", query);
+
+    // Create a reference to the Firebase Realtime Database
+    const database = firebase.database();
+
+    // Define a function to filter and merge the data from multiple collections
+    const searchAllCollections = () => {
+      const filtered = [];
+
+      // Replace "SpecialOffers" and "BestSellingProducts" with your collection names
+      const collections = ["SpecialOffers", "BestSellingProducts, NewArrivals"];
+
+      collections.forEach((collectionName) => {
+        const collectionRef = database.ref(collectionName);
+
+        collectionRef.orderByChild("productName")
+          .startAt(query.toLowerCase())
+          .endAt(query.toLowerCase() + "\uf8ff")
+          .on("child_added", (snapshot) => {
+            filtered.push(snapshot.val());
+          });
+
+          collectionRef.orderByChild("color")
+          .equalTo(query.toLowerCase())
+          .on("child_added", (snapshot) => {
+            filtered.push(snapshot.val());
+          });
+
+      });
+
+      setFilteredProducts(filtered);
+    };
+
+    searchAllCollections();
+    setSearchQuery(query);
+  };
 
   return (
     <div className="w-full bg-[#c8af8c] sticky top-20 z-40">
@@ -60,27 +90,13 @@ const HeaderBottom = () => {
                 <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
                   Accessories
                 </li>
-                <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                  Furniture
-                </li>
-                <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                  Electronics
-                </li>
-                <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                  Clothes
-                </li>
-                <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400  hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                  Bags
-                </li>
-                <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400  hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                  Home appliances
-                </li>
+                {/* Add more category items here */}
               </motion.ul>
             )}
           </div>
           <div className="relative w-full lg:w-[600px] h-[50px] text-base border border-slate-500 text-primeColor bg-white flex items-center gap-2 justify-between px-6 rounded-xl">
             <input
-              className="flex-1 h-full outline-none placeholder:text-[#C4C4C4]  placeholder:text-[14px]"
+              className="flex-1 h-full outline-none placeholder:text-[#C4C4C4] placeholder:text-[14px]"
               type="text"
               onChange={handleSearch}
               value={searchQuery}
@@ -89,7 +105,7 @@ const HeaderBottom = () => {
             <FaSearch className="w-5 h-5" />
             {searchQuery && (
               <div
-                className={`w-full mx-auto h-96 bg-black top-16 absolute left-0 z-50 overflow-y-scroll shadow-2xl scrollbar-hide cursor-pointer`}
+                className={`w-full h-auto mx-auto bg-black top-16 absolute left-0 z-50 overflow-y-scroll shadow-2xl scrollbar-hide cursor-pointer`}
               >
                 {searchQuery &&
                   filteredProducts.map((item) => (
@@ -124,6 +140,12 @@ const HeaderBottom = () => {
                             ${item.price}
                           </span>
                         </p>
+                        <p className="text-sm">
+                          Color:{" "}
+                          <span className="text-primeColor font-semibold">
+                            {item.color}
+                          </span>
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -147,17 +169,7 @@ const HeaderBottom = () => {
                     Login
                   </li>
                 </Link>
-                {/* <Link onClick={() => setShowUser(false)} to="/signup">
-                  <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                    Sign Up
-                  </li>
-                </Link> */}
-                {/* <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                  Profile
-                </li>
-                <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400  hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                  Others
-                </li> */}
+                {/* Add more user options here */}
               </motion.ul>
             )}
             <Link to="/cart">
